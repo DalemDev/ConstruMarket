@@ -1,0 +1,59 @@
+<header
+  style="
+    background-color: #e5251ecb;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  "
+>
+  <h1 style="margin: 0">Construmarket</h1>
+  <div>
+    <button
+      *ngIf="!authService.isLoggedIn"
+      style="
+        margin-right: 1rem;
+        background-color: white;
+        color: #e5251ecb;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+      "
+    >
+      Acerca de
+    </button>
+    <button
+      *ngIf="!authService.isLoggedIn"
+      style="
+        background-color: white;
+        color: #e5251ecb;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+      "
+    >
+      Iniciar Sesión
+    </button>
+
+    <span *ngIf="authService.isLoggedIn" style="margin-right: 1rem"
+      >Bienvenido, {{ authService.nombreUsuario }}</span
+    >
+    <button
+      *ngIf="authService.isLoggedIn"
+      (click)="logout()"
+      style="
+        background-color: white;
+        color: #e5251ecb;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+      "
+    >
+      Cerrar Sesión
+    </button>
+  </div>
+</header>
