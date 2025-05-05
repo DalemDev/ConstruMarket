@@ -6,6 +6,7 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { PiepaginaComponent } from './piepagina/piepagina.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { RouterOutlet } from '@angular/router';
+import { TablaProductosComponent } from './tabla-productos/tabla-productos.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,6 +18,7 @@ import { RouterOutlet } from '@angular/router';
     CabeceraComponent,
     PiepaginaComponent,
     PrincipalComponent,
+    TablaProductosComponent,
   ],
   standalone: true,
 })

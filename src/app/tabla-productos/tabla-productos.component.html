@@ -1,0 +1,73 @@
+<div style="padding: 2rem">
+  <h2>Listado de Productos</h2>
+
+  <input
+    type="text"
+    [(ngModel)]="filtro"
+    placeholder="Buscar producto..."
+    style="margin-bottom: 1rem; padding: 0.5rem; width: 300px"
+  />
+
+  <table border="1" style="width: 100%; border-collapse: collapse">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Proveedor</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of productosFiltrados">
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.categoria }}</td>
+        <td>{{ p.precio }}</td>
+        <td>{{ p.stock }}</td>
+        <td>{{ p.estado == "A" ? "Activo" : "Inactivo" }}</td>
+        <td>
+          <button (click)="editar(p)">Modificar</button>
+          <button (click)="eliminar(p.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div
+    *ngIf="mostrarDialog"
+    style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <div
+      style="background: white; padding: 2rem; border-radius: 8px; width: 400px"
+    >
+      <h3>Editar Producto</h3>
+      <label>Nombre: <input [(ngModel)]="productoEditado.nombre" /></label
+      ><br />
+      <label>Categoría: <input [(ngModel)]="productoEditado.categoria" /></label
+      ><br />
+      <label
+        >Precio:
+        <input type="number" [(ngModel)]="productoEditado.precio" /></label
+      ><br />
+      <label
+        >Stock:
+        <input type="number" [(ngModel)]="productoEditado.stock" /></label
+      ><br />
+      <label>Estado: <input [(ngModel)]="productoEditado.estado" /></label
+      ><br /><br />
+      <button (click)="guardarCambios()">Guardar</button>
+      <button (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+</div>

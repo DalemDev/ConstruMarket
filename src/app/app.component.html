@@ -64,21 +64,7 @@
     </div>
 
     <div *ngIf="authService.isLoggedIn" style="text-align: center">
-      <h2>Bienvenido {{ authService.nombreUsuario }} a Construmarket</h2>
-      <p>Ésta será la página principal de materiales de construcción.</p>
-      <button
-        (click)="logout()"
-        style="
-          margin-top: 2rem;
-          background-color: #e5251ecb;
-          color: white;
-          border: none;
-          padding: 0.5rem 1rem;
-          border-radius: 5px;
-        "
-      >
-        Cerrar Sesión
-      </button>
+      <app-tabla-productos></app-tabla-productos>
     </div>
   </main>
 
